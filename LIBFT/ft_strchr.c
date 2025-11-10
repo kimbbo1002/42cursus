@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 09:00:22 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/10 09:43:24 by bokim            ###   ########.fr       */
+/*   Created: 2025/11/10 09:34:44 by bokim             #+#    #+#             */
+/*   Updated: 2025/11/10 09:50:05 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strncmp(char *s1, char *s2, unsigned int n)
+char	*ft_strchr(const char *str, int c)
 {
-    int i;
+	int	i;
+	char	*res;
 
-    i = 0;
-    while (i < n && (s1[i] || s2[i]))
-    {
-        if (s1[i] == s2[i])
-            i++;
-        else if (s1[i] > s2[i])
-            return 1;
-        else
-            return -1;
-    }
-    return 0;
+	res = (char *)str;
+	i = 0;
+	while (res[i])
+	{
+		if (res[i] == c)
+			return (&res[i]);
+		i++;
+	}
+	return (0);
 }
 /*
 #include <stdio.h>
-#include <stdlib.h>
-int main(int argc, char** argv)
+int main()
 {
-    (void)argc;
-    printf("%d", ft_strncmp(argv[1], argv[2], atoi(argv[3])));
+	printf("%s", ft_strchr("hello", 'l'));
 }
 	*/

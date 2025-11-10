@@ -1,41 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 09:00:12 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/10 09:41:26 by bokim            ###   ########.fr       */
+/*   Created: 2025/11/10 15:07:15 by bokim             #+#    #+#             */
+/*   Updated: 2025/11/10 15:07:38 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
+char	*ft_itoa(int n)
 {
-    int i;
-
-    i = 0;
-    while (i < size - 1 && src[i])
-    {
-        dest[i] = src[i];
-        i++;
-    }
-    dest[i] = '\0';
-    return (ft_strlen(src));
+	
 }
-
-/*
-#include <string.h>
-#include <stdio.h>
-
-int main(int argc, char **argv)
-{
-    (void)argc;
-
-    char dest[5];
-    printf("%u\n", ft_strlcpy(dest, argv[1], 5));
-    printf("%s", dest);
-}
-	*/

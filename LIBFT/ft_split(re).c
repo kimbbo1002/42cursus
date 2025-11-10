@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_split(re).c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 09:00:12 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/10 09:41:26 by bokim            ###   ########.fr       */
+/*   Created: 2025/11/10 15:01:41 by bokim             #+#    #+#             */
+/*   Updated: 2025/11/10 15:06:00 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
+int	count_groups(char const *s, char c)
 {
-    int i;
+	int i;
+	int	count;
 
-    i = 0;
-    while (i < size - 1 && src[i])
-    {
-        dest[i] = src[i];
-        i++;
-    }
-    dest[i] = '\0';
-    return (ft_strlen(src));
+	i = 0;
+	count = 0;
+	while (s[i])
+	{
+		if (s[i] == c && (i != 0 && i != ft_strlen(s, c) - 1))
+			count++;
+		i++;
+	}
+	return (count + 1);
 }
 
-/*
-#include <string.h>
-#include <stdio.h>
-
-int main(int argc, char **argv)
+char	**ft_split(char const *s, char c)
 {
-    (void)argc;
-
-    char dest[5];
-    printf("%u\n", ft_strlcpy(dest, argv[1], 5));
-    printf("%s", dest);
+	int	i;
 }
-	*/

@@ -1,39 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 09:00:02 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/10 09:41:08 by bokim            ###   ########.fr       */
+/*   Created: 2025/11/10 14:13:19 by bokim             #+#    #+#             */
+/*   Updated: 2025/11/10 14:26:32 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
+char *ft_strtrim(char const *s1, char const *set)
 {
-    int i;
-    int dest_len;
+	int	i; // index of s1
+	int	j; // index of set
+	int	k; // index of res
+	char	*res;
 
-    i = 0;
-    dest_len = ft_strlen(dest);
-    while (src[i] && dest_len + i < size)
-    {
-        dest[dest_len + i] = src[i];
-        i++;
-    }
-    dest[dest_len + i] = '\0';
-    return (dest_len + ft_strlen(src));
+	i = 0;
+	k = 0;
+	res = malloc(sizeof(char) * ft_strlen(s1));
+	if (!res)
+		return (0);
+	while (s1[i])
+	{
+		j = 0;
+		while (set[j])
+		{
+			if (s1[i] == set[j])
+				break;
+			j++;
+		}
+		if (set[j] == '\0')
+			res[k++] = s1[i];
+		i++;
+	}
+	return (res);
 }
 /*
 #include <stdio.h>
-int main()
+int	main()
 {
-    char dest[10] = "hello";
-    char src[] = "byebye";
-    printf("%d\n", ft_strlcat(dest, src, 10));
-    printf("%s", dest);
+	printf("%s", ft_strtrim("aaaacaaabaaaiaaawe", "cbiw"));
 }
-*/
+	*/

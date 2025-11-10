@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 09:00:22 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/10 09:43:24 by bokim            ###   ########.fr       */
+/*   Created: 2025/11/07 16:31:37 by bokim             #+#    #+#             */
+/*   Updated: 2025/11/10 09:01:57 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_toupper(int c)
 {
-    int i;
-
-    i = 0;
-    while (i < n && (s1[i] || s2[i]))
-    {
-        if (s1[i] == s2[i])
-            i++;
-        else if (s1[i] > s2[i])
-            return 1;
-        else
-            return -1;
-    }
-    return 0;
+	if (c >= 'a' && c <= 'z')
+		c = c - 32;
+	return (c);
 }
 /*
 #include <stdio.h>
-#include <stdlib.h>
-int main(int argc, char** argv)
+int	main()
 {
-    (void)argc;
-    printf("%d", ft_strncmp(argv[1], argv[2], atoi(argv[3])));
+	char c = 'a';
+	printf("%c", ft_toupper(c));
 }
 	*/

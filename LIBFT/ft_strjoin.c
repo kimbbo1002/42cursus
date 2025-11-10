@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 09:00:02 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/10 09:41:08 by bokim            ###   ########.fr       */
+/*   Created: 2025/11/10 14:07:33 by bokim             #+#    #+#             */
+/*   Updated: 2025/11/10 14:13:08 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-    int i;
-    int dest_len;
+	int	i;
+	int	j;
+	char	*res;
 
-    i = 0;
-    dest_len = ft_strlen(dest);
-    while (src[i] && dest_len + i < size)
-    {
-        dest[dest_len + i] = src[i];
-        i++;
-    }
-    dest[dest_len + i] = '\0';
-    return (dest_len + ft_strlen(src));
+	res = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!res)
+		return (0);
+	i = 0;
+	j = 0;
+	while (s1[j])
+		res[i++] = s1[j++];
+	j = 0;
+	while (s2[j])
+		res[i++] = s2[j++];
+	res[i] = '\0';
+	return (res);
 }
 /*
 #include <stdio.h>
 int main()
 {
-    char dest[10] = "hello";
-    char src[] = "byebye";
-    printf("%d\n", ft_strlcat(dest, src, 10));
-    printf("%s", dest);
+	printf("%s", ft_strjoin("hello", "testing"));
 }
-*/
+	*/

@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 09:00:02 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/10 09:41:08 by bokim            ###   ########.fr       */
+/*   Created: 2025/11/05 15:12:09 by bokim             #+#    #+#             */
+/*   Updated: 2025/11/07 10:26:38 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
+void	*ft_memset(void *str, int c, size_t n)
 {
-    int i;
-    int dest_len;
+	size_t	i;
 
-    i = 0;
-    dest_len = ft_strlen(dest);
-    while (src[i] && dest_len + i < size)
-    {
-        dest[dest_len + i] = src[i];
-        i++;
-    }
-    dest[dest_len + i] = '\0';
-    return (dest_len + ft_strlen(src));
+	i = 0;
+	while (i < n)
+	{
+		*(unsigned char *)(str + i++) = c;
+	}
+	return (str);
 }
 /*
 #include <stdio.h>
+
 int main()
 {
-    char dest[10] = "hello";
-    char src[] = "byebye";
-    printf("%d\n", ft_strlcat(dest, src, 10));
-    printf("%s", dest);
+    char str[50] = "GeeksForGeeks is for programming geeks.";
+    printf("\nBefore memset(): %s\n", str);
+
+    // Fill 8 characters starting from str[13] with '.'
+    ft_memset(str + 13, '.', 8*sizeof(char));
+
+    printf("After memset():  %s", str);
+    return 0;
 }
 */

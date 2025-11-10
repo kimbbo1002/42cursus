@@ -1,41 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 09:00:12 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/10 09:41:26 by bokim            ###   ########.fr       */
+/*   Created: 2025/11/05 15:13:56 by bokim             #+#    #+#             */
+/*   Updated: 2025/11/07 10:26:26 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
+void	ft_bzero(void *str, size_t n)
 {
-    int i;
+	size_t	i;
 
-    i = 0;
-    while (i < size - 1 && src[i])
-    {
-        dest[i] = src[i];
-        i++;
-    }
-    dest[i] = '\0';
-    return (ft_strlen(src));
+	i = 0;
+	while (i < n)
+		*(unsigned char *)(str + i++) = '\0';
 }
-
-/*
-#include <string.h>
-#include <stdio.h>
-
-int main(int argc, char **argv)
-{
-    (void)argc;
-
-    char dest[5];
-    printf("%u\n", ft_strlcpy(dest, argv[1], 5));
-    printf("%s", dest);
-}
-	*/

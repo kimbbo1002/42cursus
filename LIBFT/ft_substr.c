@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 09:00:02 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/10 09:41:08 by bokim            ###   ########.fr       */
+/*   Created: 2025/11/10 13:41:25 by bokim             #+#    #+#             */
+/*   Updated: 2025/11/10 14:03:11 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
+char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
-    int i;
-    int dest_len;
-
-    i = 0;
-    dest_len = ft_strlen(dest);
-    while (src[i] && dest_len + i < size)
-    {
-        dest[dest_len + i] = src[i];
-        i++;
-    }
-    dest[dest_len + i] = '\0';
-    return (dest_len + ft_strlen(src));
+	size_t i;
+	size_t j;
+	char	*res;
+	
+	i = 0;
+	j = 0;
+	res = malloc((len + 1) * sizeof(char));
+	if (!res)
+		return (0);
+	while (str[i] != (char)start)
+		i++;
+	while (str[i] && j < len)
+		res[j++] = str[i++];
+	res[j] = '\0';
+	if (res[0] == '\0')
+		return (0);
+	else
+		return (res);
 }
 /*
 #include <stdio.h>
-int main()
+int	main()
 {
-    char dest[10] = "hello";
-    char src[] = "byebye";
-    printf("%d\n", ft_strlcat(dest, src, 10));
-    printf("%s", dest);
+	char const* test = "hellothisisatest";
+	printf("%s", ft_substr(test, 't', 5));
 }
-*/
+	*/
