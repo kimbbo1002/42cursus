@@ -14,10 +14,10 @@
 
 char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 	char	*res;
-	
+
 	i = 0;
 	j = 0;
 	res = malloc((len + 1) * sizeof(char));
@@ -35,7 +35,8 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 }
 /*
 #include <stdio.h>
-int	main()
+
+int	main(void)
 {
 	char const* test = "hellothisisatest";
 	printf("%s", ft_substr(test, 't', 5));

@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-int ft_memcmp(const void *str1, const void *str2, size_t n)
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-	size_t i;
-	unsigned char *cpy1;
-	unsigned char *cpy2;
+	size_t			i;
+	unsigned char	*cpy1;
+	unsigned char	*cpy2;
 
 	i = 0;
 	cpy1 = (unsigned char *)str1;
 	cpy2 = (unsigned char *)str2;
-	while(i < n)
+	while (i < n)
 	{
 		if (cpy1[i] != cpy2[i])
 			return (cpy1[i] - cpy2[i]);
@@ -60,7 +60,7 @@ int main ()
 #include <stdio.h>
 #include <string.h>
 
-int main() {
+int	main(void) {
    int arr1[] = {1, 2, 3, 5, 5};
    int arr2[] = {1, 2, 3, 4, 6};
 
@@ -71,14 +71,14 @@ int main() {
    } else {
        printf("Arrays are not equal\n");
    }
-    return 0;
+    return (0);
 }
 */
 /*
 #include <stdio.h>
 #include <string.h>
 
-int main() {
+int	main(void) {
    char str1[] = "12345678901400345678";
    char str2[] = "1234567";
 
@@ -91,6 +91,6 @@ int main() {
    } else {
        printf("First is greater than second.\n");
    }
-    return 0;
+    return (0);
 }
 	*/

@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:54:11 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/10 13:33:08 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/11 09:25:01 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_calloc(size_t n, size_t size)
 {
-	size_t	i;
+	size_t			i;
 	unsigned char	*res;
-	
+
 	i = 0;
 	if (n == 0 || size == 0)
 		return (0);
@@ -31,7 +31,7 @@ void	*ft_calloc(size_t n, size_t size)
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() {
+int	main(void) {
     int *ptr = (int *)ft_calloc(5, sizeof(int));
     
     // Checking if failed or pass
@@ -46,6 +46,6 @@ int main() {
     // Print the array
     for (int i = 0; i < 5; i++)
         printf("%d ", ptr[i]);
-    return 0;
+    return (0);
 }
 	*/

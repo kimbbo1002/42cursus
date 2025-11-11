@@ -14,8 +14,8 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	*res;
 
 	res = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
@@ -33,7 +33,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 }
 /*
 #include <stdio.h>
-int main()
+
+int	main(void)
 {
 	printf("%s", ft_strjoin("hello", "testing"));
 }

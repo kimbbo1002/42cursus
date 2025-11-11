@@ -6,18 +6,18 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:13:19 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/10 14:26:32 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/11 09:52:38 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	i; // index of s1
-	int	j; // index of set
-	int	k; // index of res
 	char	*res;
+	int		i;
+	int		j;
+	int		k;
 
 	i = 0;
 	k = 0;
@@ -30,7 +30,7 @@ char *ft_strtrim(char const *s1, char const *set)
 		while (set[j])
 		{
 			if (s1[i] == set[j])
-				break;
+				break ;
 			j++;
 		}
 		if (set[j] == '\0')
@@ -41,7 +41,8 @@ char *ft_strtrim(char const *s1, char const *set)
 }
 /*
 #include <stdio.h>
-int	main()
+
+int	main(void)
 {
 	printf("%s", ft_strtrim("aaaacaaabaaaiaaawe", "cbiw"));
 }
