@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 09:34:44 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/11 16:53:58 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/11 22:32:52 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strchr(const char *str, int c)
 	len = ft_strlen(str);
 	while (i <= len)
 	{
-		if (res[i] == c)
+		if (res[i] == (unsigned char)c)
 			return (&res[i]);
 		i++;
 	}
