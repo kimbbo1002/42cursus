@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 15:15:53 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/11 23:22:03 by boyoung          ###   ########.fr       */
+/*   Updated: 2025/11/12 10:22:04 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t		i;
 
+	if (!dest && !src)
+		return (0);
 	if (dest < src)
 	{
 		i = 0;

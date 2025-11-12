@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 10:35:23 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/07 11:00:47 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/12 10:14:22 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	size_t	i;
 
 	i = 0;
+	if (!dest && !src)
+		return (0);
 	while (i < n)
 	{
 		*(unsigned char *)(dest + i) = *(unsigned char *)(src + i);

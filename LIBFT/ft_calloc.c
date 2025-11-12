@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:54:11 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/11 09:25:01 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/12 10:20:05 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	*ft_calloc(size_t n, size_t size)
 	unsigned char	*res;
 
 	i = 0;
-	if (n == 0 || size == 0)
-		return (0);
 	res = malloc(size * n);
 	if (!res)
 		return (0);
