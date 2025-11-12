@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:41:25 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/12 00:31:43 by boyoung          ###   ########.fr       */
+/*   Updated: 2025/11/12 13:56:21 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,14 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 	i = 0;
 	j = 0;
 	res = malloc((len + 1) * sizeof(char));
-	if (!res)
+	if (!res || start >= ft_strlen(s))
 		return (0);
-	while (str[i] != (char)start)
+	while (i != start)
 		i++;
 	while (str[i] && j < len)
 		res[j++] = str[i++];
 	res[j] = '\0';
-	if (res[0] == '\0')
-		return (0);
-	else
-		return (res);
+	return (res);
 }
 /*
 #include <stdio.h>
@@ -39,6 +36,6 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 int	main(void)
 {
 	char const* test = "hellothisisatest";
-	printf("%s", ft_substr(test, 't', 5));
+	printf("%s", ft_substr(test, 't', 30));
 }
-	*/
+*/

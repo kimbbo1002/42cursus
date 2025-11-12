@@ -25,9 +25,11 @@ SRCS = ft_atoi.c \
 		ft_strtrim.c \
 		ft_substr.c \
 		ft_tolower.c \
-		ft_toupper.c 
+		ft_toupper.c \
+		ft_split.c \
+		ft_itoa.c
+
 OBJS = ${SRCS:.c=.o}
-INCLS = libft.h
 NAME = libft.a
 
 all: ${NAME}
