@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:41:25 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/12 13:56:21 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/12 15:38:42 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 	i = 0;
 	j = 0;
 	res = malloc((len + 1) * sizeof(char));
-	if (!res || start >= ft_strlen(s))
+	if (!res || start >= ft_strlen(str))
 		return (0);
 	while (i != start)
 		i++;
