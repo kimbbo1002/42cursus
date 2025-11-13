@@ -6,55 +6,57 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 12:36:47 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/12 13:38:07 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/13 14:43:07 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_intlen(int n);
 static char	*ft_revstr(char *str);
+
+static int	ft_intlen(int n)
+{
+	int		count;
+	long	num;
+
+	count = 0;
+	num = n;
+	if (n < 0)
+	{
+		count++;
+		num = -num;
+	}
+	while (num / 10 != 0)
+	{
+		count++;
+		num = num / 10;
+	}
+	return (count + 1);
+}
 
 char	*ft_itoa(int n)
 {
 	int		i;
-	int		num;
 	char	*res;
+	long	num;
 
-	if (n >= 0)
-		num = n;
-	else
-		num = -n;
-	res = malloc(sizeof(char) * (ft_intlen(n) + 2));
+	num = n;
+	if (n < 0)
+		num = -num;
+	res = malloc(sizeof(char) * (ft_intlen(n) + 1));
 	if (!res)
 		return (0);
 	i = 0;
 	while (num / 10 != 0)
 	{
-		res[i] = num % 10 + '0';
+		res[i++] = num % 10 + '0';
 		num = num / 10;
-		i++;
 	}
 	res[i++] = num + '0';
 	if (n < 0)
 		res[i++] = '-';
 	res[i] = '\0';
 	return (ft_revstr(res));
-}
-
-static int	ft_intlen(int n)
-{
-	int	len;
-	int	num;
-
-	num = n;
-	len = 0;
-	while (num / 10 != 0)
-	{
-		num = num / 10;
-		len++;
-	}
-	return (len + 1);
 }
 
 static char	*ft_revstr(char *str)
@@ -74,11 +76,12 @@ static char	*ft_revstr(char *str)
 	}
 	return (str);
 }
+
 /*
 #include <stdio.h>
 
 int	main(void)
 {
-	printf("%s", ft_itoa(-123));
+	printf("%s", ft_itoa(-2147483648));
 }
 */

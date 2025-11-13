@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 10:12:48 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/13 10:42:12 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/13 15:05:24 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,29 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*res;
-	int		i;
+	int	tmp;
 
-	res = ft_itoa(n);
-	i = 0;
-	while (res[i])
+	if (n == -2147483648)
 	{
-		write(fd, &res[i], 1);
-		i++;
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		ft_putnbr_fd(-n, fd);
+	}
+	if (n >= 0)
+	{
+		tmp = n % 10 + '0';
+		if (n > 9)
+			ft_putnbr_fd(n / 10, fd);
+		write(fd, &tmp, 1);
 	}
 }
+
 /*
 int	main(void)
 {
-	ft_putnbr_fd(-12345, 1);
-}
-	*/
+	ft_putnbr_fd(-2147483648, 1);
+}*/

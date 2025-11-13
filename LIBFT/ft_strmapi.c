@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 09:02:45 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/13 09:56:41 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/13 13:45:51 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 		res[i] = f(i, s[i]);
 		i++;
 	}
+	res[i] = '\0';
 	return (res);
 }
 /*
