@@ -20,7 +20,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*res;
 	int		start;
 	int		end;
-	int		;
+	int		i;
 
 	start = 0;
 	end = ft_strlen(s1) - 1;
