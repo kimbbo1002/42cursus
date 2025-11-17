@@ -14,6 +14,7 @@
 
 int		count_group(char const *s, char c);
 char	*assign_word(char *str, char c);
+int		check_malloc(char *str, char **res);
 
 char	**ft_split(char const *s, char c)
 {
@@ -23,14 +24,16 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	j = 0;
-	res = malloc(sizeof(char *) * (count_group(s, c) + 1));
-	if (!res || !s)
+	res = malloc(sizeof(char *) * count_group(s, c));
+	if (!res)
 		return (0);
 	while (s[i])
 	{
 		if (s[i] != (unsigned char)c)
 		{
 			res[j] = assign_word((char *)&s[i], c);
+			if (!check_malloc(res[j], res))
+				return (0);
 			while (s[i] && s[i] != (unsigned char)c)
 				i++;
 			j++;
@@ -42,6 +45,22 @@ char	**ft_split(char const *s, char c)
 	return (res);
 }
 
+int	check_malloc(char *str, char **res)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+	{
+		while (res[i])
+			free(res[i++]);
+		free(res);
+		return (0);
+	}
+	else
+		return (1);
+}
+
 int	count_group(char const *s, char c)
 {
 	int	i;
@@ -51,9 +70,14 @@ int	count_group(char const *s, char c)
 	count = 0;
 	while (s[i])
 	{
-		if (s[i] == (unsigned char)c)
+		if (s[i] != (unsigned char)c)
+		{
 			count++;
-		i++;
+			while (s[i] && s[i] != (unsigned char)c)
+				i++;
+		}
+		else
+			i++;
 	}
 	return (count + 1);
 }
