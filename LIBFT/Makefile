@@ -1,3 +1,4 @@
+NAME = libft.a
 CC = cc 
 CFLAGS = -Wall -Werror -Wextra
 SRCS = ft_atoi.c \
@@ -27,19 +28,27 @@ SRCS = ft_atoi.c \
 		ft_tolower.c \
 		ft_toupper.c \
 		ft_split.c \
-		ft_itoa.c\
-		ft_strmapi.c\
-		ft_striteri.c\
-		ft_putchar_fd.c\
-		ft_putstr_fd.c\
-		ft_putendl_fd.c\
+		ft_itoa.c \
+		ft_strmapi.c \
+		ft_striteri.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
 		ft_putnbr_fd.c
-
 OBJS = ${SRCS:.c=.o}
-NAME = libft.a
+
+BONUS_SRCS = ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstmap.c
+BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
 all: ${NAME}
-	echo ${OBJS}
 
 ${NAME}: ${OBJS}
 	ar rcs $@ $^
@@ -47,11 +56,13 @@ ${NAME}: ${OBJS}
 %.o: %.c
 	${CC} ${CFLAGS} -c $^ -o $@
 
-clean:
-	rm -f ${OBJS}
+bonus: ${OBJS} ${BONUS_OBJS}
+	ar rcs ${NAME} ${OBJS} ${BONUS_OBJS}
 
-fclean:
+clean:
+	rm -f ${OBJS} ${BONUS_OBJS}
+
+fclean: clean
 	rm -f ${NAME}
 
-re:
-	fclean all
+re: fclean all
