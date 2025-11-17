@@ -6,33 +6,14 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 12:36:47 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/13 14:43:07 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/17 14:05:36 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static char	*ft_revstr(char *str);
-
-static int	ft_intlen(int n)
-{
-	int		count;
-	long	num;
-
-	count = 0;
-	num = n;
-	if (n < 0)
-	{
-		count++;
-		num = -num;
-	}
-	while (num / 10 != 0)
-	{
-		count++;
-		num = num / 10;
-	}
-	return (count + 1);
-}
+static int	ft_intlen(int n);
 
 char	*ft_itoa(int n)
 {
@@ -57,6 +38,26 @@ char	*ft_itoa(int n)
 		res[i++] = '-';
 	res[i] = '\0';
 	return (ft_revstr(res));
+}
+
+static int	ft_intlen(int n)
+{
+	int		count;
+	long	num;
+
+	count = 0;
+	num = n;
+	if (n < 0)
+	{
+		count++;
+		num = -num;
+	}
+	while (num / 10 != 0)
+	{
+		count++;
+		num = num / 10;
+	}
+	return (count + 1);
 }
 
 static char	*ft_revstr(char *str)

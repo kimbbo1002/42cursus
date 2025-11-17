@@ -6,15 +6,15 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 11:01:46 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/17 13:35:54 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/17 14:06:28 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		count_group(char const *s, char c);
-char	*assign_word(char *str, char c);
-int		check_malloc(char *str, char **res);
+static int		count_group(char const *s, char c);
+static char	*assign_word(char *str, char c);
+static int		check_malloc(char *str, char **res);
 
 char	**ft_split(char const *s, char c)
 {
@@ -45,7 +45,7 @@ char	**ft_split(char const *s, char c)
 	return (res);
 }
 
-int	check_malloc(char *str, char **res)
+static int	check_malloc(char *str, char **res)
 {
 	int	i;
 
@@ -61,7 +61,7 @@ int	check_malloc(char *str, char **res)
 		return (1);
 }
 
-int	count_group(char const *s, char c)
+static int	count_group(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -82,7 +82,7 @@ int	count_group(char const *s, char c)
 	return (count + 1);
 }
 
-char	*assign_word(char *str, char c)
+static char	*assign_word(char *str, char c)
 {
 	char	*word;
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 23:49:13 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/17 13:33:59 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/17 13:44:24 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,4 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
 		return (0);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
 }
