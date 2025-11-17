@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa_lower.c                                 :+:      :+:    :+:   */
+/*   ft_puthex.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,4 +12,23 @@
 
 #include "libftprintf.h"
 
-void	ft_puthexa_lower()
+int	ft_puthex(char c, unsigned int i)
+{
+    char    *base;
+    int test;
+
+    if (c == 'x')
+        base = "0123456789abcdef";
+    else
+        base = "0123456789ABCDEF";
+    
+    while (i / 256 != 0)
+        i = i / 256;
+    test = putchar(base[i / 16]);
+    if (test == -1)
+        return (-1);
+    test = putchar(base[i % 16]);
+    if (test == -1)
+        return (-1);
+    return (1);
+}

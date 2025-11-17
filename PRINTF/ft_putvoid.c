@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putvoid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/17 15:48:40 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/17 23:19:56 by boyoung          ###   ########.fr       */
+/*   Created: 2025/11/17 22:34:23 by boyoung           #+#    #+#             */
+/*   Updated: 2025/11/17 22:57:37 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_putnbr(int n)
-{
-	int	tmp;
-	int	test;
+#include "libftprintf.h"
 
-	if (n == -2147483648)
-	{
-		test = write(1, "-2147483648", 11);
-		return (1);
-	}
-	if (n < 0)
-	{
-		write(1, "-", 1);
-		ft_putnbr(-n, 1);
-	}
-	if (n >= 0)
-	{
-		tmp = n % 10 + '0';
-		if (n > 9)
-			ft_putnbr(n / 10, 1);
-		write(1, &tmp, 1);
-	}
+void    ft_putvoid(void *s)
+{
+    int i;
+    unsigned char   *str;
+    char    *base;
+    char    *res;
+
+    i = 0;
+    str = (unsigned char)s;
+    base = "0123456789abcdef"
+    while (str[i])
+    {
+        ft_putchar(base[str[i] / 16]);
+        ft_putchar(base[str[i] % 16]);
+        i++;
+    }
 }
-int	test
