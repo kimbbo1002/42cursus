@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:43:34 by boyoung           #+#    #+#             */
-/*   Updated: 2025/11/15 00:20:42 by boyoung          ###   ########.fr       */
+/*   Updated: 2025/11/17 09:27:05 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (lst)

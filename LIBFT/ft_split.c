@@ -55,7 +55,7 @@ int	count_group(char const *s, char c)
 			count++;
 		i++;
 	}
-	return (count - 1);
+	return (count + 1);
 }
 
 char	*assign_word(char *str, char c)

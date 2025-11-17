@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 00:14:08 by boyoung           #+#    #+#             */
-/*   Updated: 2025/11/16 19:32:09 by boyoung          ###   ########.fr       */
+/*   Updated: 2025/11/17 09:27:17 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *tmp;
+	t_list	*tmp;
+
 	if (!(*lst) || !del)
 		return ;
 	while (*lst)

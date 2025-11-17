@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 17:31:02 by boyoung           #+#    #+#             */
-/*   Updated: 2025/11/16 19:47:41 by boyoung          ###   ########.fr       */
+/*   Updated: 2025/11/17 09:46:05 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,14 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	new_list = 0;
 	while (lst)
 	{
-		new_content = f(lst->content);
+		new_content = ft_lstnew(f(lst->content));
 		if (!new_content)
+		{
 			ft_lstclear(&new_list, del);
+			return (0);
+		}
 		ft_lstadd_back(&new_list, new_content);
-        lst = lst->next;
+		lst = lst->next;
 	}
 	return (new_list);
 }
