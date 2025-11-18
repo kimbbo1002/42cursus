@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 14:23:28 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 13:35:36 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/18 14:14:54 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ static int	sort_type(const char c, va_list arg)
 
 int	main(void)
 {
+	
 	int				test;
 	char			test2;
 	char			*test3;
@@ -89,12 +90,15 @@ int	main(void)
 	test3 = "testing";
 	test4 = 2147483648;
 	test5 = 42;
-	ft_printf("hello this is a %i\n", test);
+	ft_printf("hello this is a %i and a %d\n", test, test);
 	ft_printf("hello this is a %d\n", test);
 	ft_printf("hello this is a %c\n", test2);
 	ft_printf("hello this is a %s\n", test3);
 	ft_printf("hello this is a %u\n", test4);
 	ft_printf("hello this is a %x\n", test5);
 	ft_printf("hello this is a %X\n", test5);
+	
+	ft_printf(" %c ", '0');
+	printf(" %c ", '0');
 }
-	*/
+*/

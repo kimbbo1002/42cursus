@@ -6,13 +6,15 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 15:09:20 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/05 15:10:56 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/18 14:40:51 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *str)
+#include "libft.h"
+
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])

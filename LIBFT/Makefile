@@ -1,6 +1,7 @@
 NAME = libft.a
 CC = cc 
 CFLAGS = -Wall -Werror -Wextra
+INCL = libft.h
 SRCS = ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
@@ -55,9 +56,8 @@ ${NAME}: ${OBJS}
 
 %.o: %.c
 	${CC} ${CFLAGS} -c $^ -o $@
-
-bonus: ${OBJS} ${BONUS_OBJS}
-	ar rcs ${NAME} ${OBJS} ${BONUS_OBJS}
+bonus:
+	@make OBJS="$(OBJS) $(BONUS_OBJS)" --no-print-directory
 
 clean:
 	rm -f ${OBJS} ${BONUS_OBJS}
