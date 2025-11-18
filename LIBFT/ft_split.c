@@ -6,14 +6,14 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 11:01:46 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/17 14:06:28 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/18 08:48:08 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static int		count_group(char const *s, char c);
-static char	*assign_word(char *str, char c);
+static char		*assign_word(char *str, char c);
 static int		check_malloc(char *str, char **res);
 
 char	**ft_split(char const *s, char c)
