@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:54:11 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/12 10:20:05 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/18 10:39:32 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 void	*ft_calloc(size_t n, size_t size)
 {
-	size_t			i;
 	unsigned char	*res;
 
-	i = 0;
+	if (size == 0 || n == 0 || size > (size_t) - 1 / n)
+		return (malloc(0));
 	res = malloc(size * n);
 	if (!res)
 		return (0);
-	while (res[i])
-		res[i++] = 0;
+	ft_memset(res, 0, size * n);
 	return (res);
 }
 /*
