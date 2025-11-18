@@ -6,20 +6,20 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 14:23:28 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 13:01:26 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/18 13:35:36 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	is_format(char c);
-static int sort_type(const char c, va_list arg);
+static int	sort_type(const char c, va_list arg);
 
 int	ft_printf(const char *format, ...)
 {
-	int	i;
-	int	test;
-	va_list arg;
+	int		i;
+	int		test;
+	va_list	arg;
 
 	if (!format)
 		return (-1);
@@ -35,7 +35,7 @@ int	ft_printf(const char *format, ...)
 		else
 			test = write(1, &format[i++], 1);
 		if (!test)
-				return (-1);
+			return (-1);
 	}
 	va_end(arg);
 	return (0);
@@ -43,15 +43,14 @@ int	ft_printf(const char *format, ...)
 
 static int	is_format(char c)
 {
-	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' || c == 'u' 
+	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' || c == 'u'
 		|| c == 'x' || c == 'X' || c == '%')
 		return (1);
 	else
 		return (0);
 }
 
-
-static int sort_type(const char c, va_list arg)
+static int	sort_type(const char c, va_list arg)
 {
 	int	test;
 
@@ -60,8 +59,8 @@ static int sort_type(const char c, va_list arg)
 		test = ft_putchar(va_arg(arg, int));
 	else if (c == 's')
 		test = ft_putstr(va_arg(arg, char *));
-	//else if (c == 'p')
-		//test = ft_putvoid(va_arg(arg, void *));
+	else if (c == 'p')
+		test = ft_putvoid(va_arg(arg, void *));
 	else if (c == 'd' || c == 'i')
 		test = ft_putnbr(va_arg(arg, int));
 	else if (c == 'u')
@@ -77,13 +76,19 @@ static int sort_type(const char c, va_list arg)
 /*
 #include <stdio.h>
 
-int	main()
+int	main(void)
 {
-	int	test = 11342;
-	char	test2 = 't';
-	char	*test3 = "testing";
-	unsigned int test4 = 2147483648;
-	int	test5 = 42;
+	int				test;
+	char			test2;
+	char			*test3;
+	unsigned int	test4;
+	int				test5;
+
+	test = 11342;
+	test2 = 't';
+	test3 = "testing";
+	test4 = 2147483648;
+	test5 = 42;
 	ft_printf("hello this is a %i\n", test);
 	ft_printf("hello this is a %d\n", test);
 	ft_printf("hello this is a %c\n", test2);

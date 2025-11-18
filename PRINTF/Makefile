@@ -1,8 +1,7 @@
 NAME = libftprintf.a
-
 CC = cc 
 CFLAGS = -Wall -Wextra -Werror
-
+INCL = ft_printf.h
 SRCS = ft_printf.c \
 		ft_putchar.c \
 		ft_putstr.c \
@@ -18,7 +17,7 @@ ${NAME}: ${OBJS}
 	ar rcs $@ $^
 
 %.o: %.c
-	${CC} ${CFLAGS} -c $^-o $@
+	${CC} ${CFLAGS} -c $^ -o $@
 
 clean:
 	rm -f ${OBJS}

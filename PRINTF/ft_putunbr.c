@@ -6,17 +6,17 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 11:30:50 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 11:39:02 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/18 13:35:04 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int	ft_putunbr(unsigned int n)
+int	ft_putunbr(unsigned long int n)
 {
 	int	tmp;
 	int	test;
-	
+
 	tmp = n % 10 + '0';
 	if (n > 9)
 		ft_putunbr(n / 10);
@@ -28,7 +28,7 @@ int	ft_putunbr(unsigned int n)
 /*
 #include <limits.h>
 
-int main()
+int	main(void)
 {
 	ft_putunbr(2147483648);
 }

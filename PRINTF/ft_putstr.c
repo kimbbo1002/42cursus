@@ -6,11 +6,11 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 15:46:57 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 12:45:54 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/18 13:35:11 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putstr(char *str)
 {

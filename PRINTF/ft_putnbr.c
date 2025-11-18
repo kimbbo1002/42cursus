@@ -6,11 +6,11 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 15:48:40 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 11:45:39 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/18 13:35:13 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putnbr(int n)
 {

@@ -10,32 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_puthex(char c, unsigned int i)
 {
-    char    *base;
-    int test;
+	char	*base;
+	int		test;
 
-    if (c == 'x')
-        base = "0123456789abcdef";
-    else
-        base = "0123456789ABCDEF";
-    
-    while (i / 256 != 0)
-        i = i / 256;
-    test = ft_putchar(base[i / 16]);
-    if (test == -1)
-        return (-1);
-    test = ft_putchar(base[i % 16]);
-    if (test == -1)
-        return (-1);
-    return (1);
+	if (c == 'x')
+		base = "0123456789abcdef";
+	else
+		base = "0123456789ABCDEF";
+	while (i / 256 != 0)
+		i = i / 256;
+	test = ft_putchar(base[i / 16]);
+	if (test == -1)
+		return (-1);
+	test = ft_putchar(base[i % 16]);
+	if (test == -1)
+		return (-1);
+	return (1);
 }
 /*
 #include <stdio.h>
 
-int	main()
+int	main(void)
 {
 	ft_puthex('X', 42);
 }
