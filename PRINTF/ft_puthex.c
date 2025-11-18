@@ -24,11 +24,19 @@ int	ft_puthex(char c, unsigned int i)
     
     while (i / 256 != 0)
         i = i / 256;
-    test = putchar(base[i / 16]);
+    test = ft_putchar(base[i / 16]);
     if (test == -1)
         return (-1);
-    test = putchar(base[i % 16]);
+    test = ft_putchar(base[i % 16]);
     if (test == -1)
         return (-1);
     return (1);
 }
+/*
+#include <stdio.h>
+
+int	main()
+{
+	ft_puthex('X', 42);
+}
+	*/

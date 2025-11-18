@@ -12,8 +12,12 @@
 
 #include "libftprintf.h"
 
-int	ft_putchar(char c)
+int	ft_putchar(int c)
 {
-	write(1, &c, 1);
+	int	test;
+
+	test = write(1, &c, 1);
+	if (test == -1)
+		return (-1);
 	return (1);
 }
