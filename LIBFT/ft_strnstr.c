@@ -3,23 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 10:31:41 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/17 13:32:16 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 12:23:52 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+description :
+ct_Strnstr searches first n bytes of big for the first occurence of little
+
+return value :
+- pointer to first char of first occurence of little in big
+- pointer to big is little is empty
+- NULL if little is not found
+*/
+
 char	*ft_strnstr(const char *big, const char *little, size_t n)
 {
 	size_t	i;
 	size_t	j;
+	size_t	little_len;
 
-	i = 0;
-	if (little[i] == '\0')
+	little_len = ft_strlen(little);
+	if (little_len == 0 || big == little)
 		return ((char *)big);
+	i = 0;
 	while (i < n && big[i])
 	{
 		j = 0;

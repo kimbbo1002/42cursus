@@ -3,17 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 09:57:18 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/13 10:41:04 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 11:50:39 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+/*
+description :
+ft_striteri applies f to each character in s
+
+return value :
+none
+*/
+
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned int	i;
+	int	i;
 
+	if (!s || !f)
+		return ;
 	i = 0;
 	while (s[i])
 	{

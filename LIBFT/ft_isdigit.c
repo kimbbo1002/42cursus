@@ -3,12 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:52:37 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/11 10:26:00 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 10:33:42 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+description :
+ft_isdigit checks whether the value of c is a digit character
+
+return value :
+- 1 if c is digit
+- 0 if not
+*/
 
 int	ft_isdigit(int c)
 {

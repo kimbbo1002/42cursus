@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 11:01:46 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 08:48:08 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 11:42:16 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+description :
+ft_split allocates and copies an array of strings by splitting the given
+string s using the given separator c
+
+return value :
+- array of strings resulting from the split
+- NULL if memory allocation fails
+*/
 
 static int		count_group(char const *s, char c);
 static char		*assign_word(char *str, char c);

@@ -3,12 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:45:04 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/11 10:25:42 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 10:32:56 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+description :
+ft_isalpha checks whether the value of c is alphabetic
+
+return value :
+- 1 if c is alphabetic
+- 0 if not
+*/
 
 int	ft_isalpha(int c)
 {

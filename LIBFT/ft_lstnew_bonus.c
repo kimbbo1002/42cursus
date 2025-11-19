@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 12:35:23 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 08:49:14 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 10:59:57 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+description :
+ft_lstnew allocates memory for a new node and initialized its content 
+to 'content' and sets next node to NULL
+
+return value :
+the new list node
+*/
 
 t_list	*ft_lstnew(void *content)
 {

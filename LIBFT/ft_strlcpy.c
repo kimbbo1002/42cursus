@@ -3,28 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 09:00:12 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/11 12:08:32 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 12:02:41 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+/*
+description :
+ft_strlcpy copies up to dstsize - 1 characters from src to dst
+
+return value :
+total length of the string that it tried to create (length of src)
+*/
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 
 	i = 0;
-	if (size != 0)
+	if (dstsize != 0)
 	{
-		while (i < size - 1 && src[i])
+		while (i < dstsize - 1 && src[i])
 		{
-			dest[i] = src[i];
+			dst[i] = src[i];
 			i++;
 		}
-		dest[i] = '\0';
+		dst[i] = '\0';
 	}
 	return (ft_strlen(src));
 }

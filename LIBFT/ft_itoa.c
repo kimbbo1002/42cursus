@@ -3,17 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 12:36:47 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/17 14:05:36 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 12:48:39 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+description :
+ft_itoa converts the integer n into a string
+
+return value :
+- the string representing the integer
+- NULL if the allocation fails
+*/
+
 static char	*ft_revstr(char *str);
-static int	ft_intlen(int n);
+static int	ft_intlen(long n);
 
 char	*ft_itoa(int n)
 {
@@ -40,7 +49,7 @@ char	*ft_itoa(int n)
 	return (ft_revstr(res));
 }
 
-static int	ft_intlen(int n)
+static int	ft_intlen(long n)
 {
 	int		count;
 	long	num;
@@ -77,12 +86,3 @@ static char	*ft_revstr(char *str)
 	}
 	return (str);
 }
-
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	printf("%s", ft_itoa(-2147483648));
-}
-*/

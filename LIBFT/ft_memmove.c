@@ -3,40 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 15:15:53 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/12 10:22:04 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 11:26:53 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+/*
+description :
+ft_memmove copies len bytes from src to dst
+- memory areas may overlap
+
+return value :
+- pointer to dst
+- NULL if src and dst are both NULL
+*/
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t		i;
 
-	if (!dest && !src)
+	if (!dst && !src)
 		return (0);
-	if (dest < src)
+	if (dst < src)
 	{
 		i = 0;
-		while (i < n)
+		while (i < len)
 		{
-			*(unsigned char *)(dest + i) = *(unsigned char *)(src + i);
+			*(unsigned char *)(dst + i) = *(unsigned char *)(src + i);
 			i++;
 		}
 	}
 	else
 	{
-		i = n;
+		i = len;
 		while (i > 0)
 		{
 			i--;
-			*(unsigned char *)(dest + i) = *(unsigned char *)(src + i);
+			*(unsigned char *)(dst + i) = *(unsigned char *)(src + i);
 		}
 	}
-	return (dest);
+	return (dst);
 }
 /*
 #include <stdio.h>

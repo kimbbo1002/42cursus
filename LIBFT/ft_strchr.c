@@ -3,19 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 09:34:44 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/17 13:31:53 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 12:06:14 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+description :
+ft_strchr finds the first occurence of c in str
+
+return value :
+- pointer to the first occurence of c in str
+- NULL if c is not found
+*/
+
 char	*ft_strchr(const char *str, int c)
 {
-	int		i;
-	int		len;
+	size_t	i;
+	size_t	len;
 	char	*res;
 
 	res = (char *)str;

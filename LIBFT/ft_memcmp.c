@@ -3,24 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 10:06:52 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/10 11:19:01 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 11:25:10 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *str1, const void *str2, size_t n)
+/*
+description :
+ft_memcmp compares the first n bytes of s1 and s2
+
+return value :
+- 
+- 0 if same
+*/
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t			i;
 	unsigned char	*cpy1;
 	unsigned char	*cpy2;
 
 	i = 0;
-	cpy1 = (unsigned char *)str1;
-	cpy2 = (unsigned char *)str2;
+	cpy1 = (unsigned char *)s1;
+	cpy2 = (unsigned char *)s2;
 	while (i < n)
 	{
 		if (cpy1[i] != cpy2[i])

@@ -3,25 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 15:12:09 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 10:54:26 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 11:35:26 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *str, int c, size_t n)
+/*
+description :
+ft_memset fills the first len bytes of the memory pointed by b with byte c
+
+return value :
+a pointer to meomry s
+*/
+
+void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < n)
+	while (i < len)
 	{
-		*(unsigned char *)(str + i++) = c;
+		*(unsigned char *)(b + i++) = (unsigned char)c;
 	}
-	return (str);
+	return (b);
 }
 /*
 #include <stdio.h>

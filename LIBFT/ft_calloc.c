@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:54:11 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 10:39:32 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 10:23:41 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+description :
+ft_calloc allocated memorty for an array and fills the memory with 0
+
+return value :
+- pointer to the allocated memory
+- NULL if memory allocation fails
+- if n or size is 0, a unique pointer value that can be successfully passed 
+to free()
+*/
 
 void	*ft_calloc(size_t n, size_t size)
 {

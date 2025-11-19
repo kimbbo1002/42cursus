@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 10:12:48 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/13 15:05:24 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 11:39:42 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+description :
+ft_putnbr_fd converts the int to a string then writes it to the given fd
+
+return value :
+none
+*/
 
 void	ft_putnbr_fd(int n, int fd)
 {
@@ -23,7 +31,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (n < 0)
 	{
-		write(fd, "-", 1);
+		ft_putchar_fd('-', fd);
 		ft_putnbr_fd(-n, fd);
 	}
 	if (n >= 0)

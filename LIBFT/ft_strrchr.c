@@ -12,26 +12,37 @@
 
 #include "libft.h"
 
-char	*ft_strrchr(char *str, int c)
+/*
+description :
+ft_strrchr finds the last occurence of char c in str
+
+return value :
+- pointer to last occurrence of c in str
+- NULL if c is not found
+*/
+
+char	*ft_strrchr(const char *str, int c)
 {
-	int	i;
-	int	res;
-	int	len;
+	size_t	i;
+	size_t	res;
+	size_t	len;
+	char	*s;
 
 	i = 0;
 	res = 0;
 	len = ft_strlen(str);
+	s = (char *)str;
 	if ((unsigned char)c == '\0')
-		return (&str[len]);
-	while (str[i])
+		return (&s[len]);
+	while (s[i])
 	{
-		if (str[i] == (unsigned char)c)
+		if (s[i] == (unsigned char)c)
 			res = i;
 		i++;
 	}
-	if (res == 0 && str[res] != (unsigned char)c)
+	if (res == 0 && s[res] != (unsigned char)c)
 		return (0);
-	return (&str[res]);
+	return (&s[res]);
 }
 
 /*

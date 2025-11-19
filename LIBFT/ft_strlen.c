@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 15:09:20 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 14:40:51 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 12:11:35 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+description :
+counts the length of a string
+
+return value :
+length of string
+*/
 
 size_t	ft_strlen(const char *str)
 {

@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 17:31:02 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 08:49:10 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 10:55:15 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+description :
+ft_lstmap iterates through the list, applies the function f 
+to each node's content, and creates a new list resulting of the successive 
+applications of the function f
+
+return value :
+- the new list
+- NULL if the allocation fails
+*/
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 23:49:13 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 08:49:06 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 10:53:04 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+description :
+ft_lstlast finds the last node in a given list
+
+return value :
+the last node of a list
+*/
 
 t_list	*ft_lstlast(t_list *lst)
 {

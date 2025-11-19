@@ -3,23 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 10:10:30 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/13 10:41:29 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 11:40:55 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+description :
+ft_putstr_fd writes the given string to the given fd
+
+return value :
+none
+*/
 
 void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
 	i = 0;
+	if (!s)
+		return ;
 	while (s[i])
 	{
-		write(fd, &s[i], 1);
+		ft_putchar_fd(s[i], fd);
 		i++;
 	}
 }

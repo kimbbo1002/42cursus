@@ -3,7 +3,8 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>	            +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42.fr>			      +#+  +:+
+			+#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:46:44 by bokim             #+#    #+#             */
 /*   Updated: 2025/11/16 19:12:37 by bokim            ###   ########.fr       */
@@ -29,12 +30,12 @@ int					ft_tolower(int c);
 
 int					ft_atoi(const char *str);
 
-size_t					ft_strlen(const char *str);
+size_t				ft_strlen(const char *str);
 size_t				ft_strlcpy(char *dest, const char *src, size_t size);
 size_t				ft_strlcat(char *dest, const char *src, size_t size);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strchr(const char *str, int c);
-char				*ft_strrchr(char *str, int c);
+char				*ft_strrchr(const char *str, int c);
 char				*ft_strnstr(const char *big, const char *little, size_t n);
 
 void				*ft_memset(void *str, int c, size_t n);
@@ -66,6 +67,7 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);

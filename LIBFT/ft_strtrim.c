@@ -18,9 +18,9 @@ static int	count_alloc(char const *s1, char const *set);
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;
-	int		start;
-	int		end;
-	int		i;
+	size_t	start;
+	size_t	end;
+	size_t	i;
 
 	start = 0;
 	end = ft_strlen(s1) - 1;
@@ -54,9 +54,9 @@ static int	is_set(char c, char const *set)
 
 static int	count_alloc(char const *s1, char const *set)
 {
-	int	start;
-	int	end;
-	int	count;
+	size_t	start;
+	size_t	end;
+	size_t	count;
 
 	start = 0;
 	end = ft_strlen(s1) - 1;

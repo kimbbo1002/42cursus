@@ -3,47 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:33:17 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/11 16:36:45 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 12:47:57 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *str)
-{
-	int		i;
-	char	*res;
-	int		len;
+/*
+description :
+ft_strdup duplicates s1 by allocating memory and copying
 
-	i = 0;
-	len = ft_strlen(str);
+return value :
+- pointer to the new string
+- NULL if the memory allocation fails
+*/
+
+char	*ft_strdup(const char *s1)
+{
+	char	*res;
+	size_t	len;
+
+	len = ft_strlen(s1);
 	res = malloc((len + 1) * sizeof(char));
 	if (!res)
 		return (0);
-	while (str[i])
-	{
-		res[i] = str[i];
-		i++;
-	}
-	res[i] = '\0';
-	return (&res[0]);
+	ft_strlcpy(res, s1, len + 1);
+	return (res);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-
-int	main(void)
-{
-	char	source[];
-
-    source[] = "GeeksForGeeks";
-    // A copy of source is created dynamically
-    // and pointer to copy is returned.
-    char* target = ft_strdup(source); 
-    printf("%s", target);
-    return (0);
-}
-*/

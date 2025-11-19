@@ -3,18 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 15:02:02 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/07 08:47:32 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 10:29:19 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+/*
+description :
+ft_isalnum checks whether the value of c is alphanumeric
+
+return value :
+- 1 if c is alphanumeric
+- 0 if not
+*/
+
 int	ft_isalnum(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	else if (c >= '0' && c <= '9')
+	if (ft_isalpha(c) || ft_isdigit(c))
 		return (1);
 	else
 		return (0);

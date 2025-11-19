@@ -3,22 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 09:02:45 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/13 13:45:51 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 12:16:47 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// char ft_example(unsigned int n, char c);
+/*
+description :
+ft_strmapi applies function f to each character in s and allocates memory 
+to store the resulting new string
+
+return value :
+- pointer to the newly created string
+- NULL if memory allocation fails
+*/
 
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
 	char			*res;
 
+	if (!f)
+		return (ft_strdup(""));
 	res = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!res)
 		return (0);

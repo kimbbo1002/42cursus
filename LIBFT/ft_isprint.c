@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+description :
+ft_isprint checks whether the value of c is a printable character
+
+return value :
+- 1 if c is printable
+- 0 if not
+*/
+
 int	ft_isprint(int c)
 {
 	if (c > 31 && c < 127)

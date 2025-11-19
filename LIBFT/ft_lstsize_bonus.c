@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:43:34 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 08:49:17 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/19 11:00:54 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+description :
+ft_lstsize counts the number of nodes in the list
+
+return value :
+the length of the list
+*/
 
 int	ft_lstsize(t_list *lst)
 {
