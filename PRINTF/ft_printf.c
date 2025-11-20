@@ -6,11 +6,17 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 14:23:28 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 14:14:54 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/20 14:19:17 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+return value :
+- number of bytes printed
+- negative number if error occurs
+*/
 
 static int	is_format(char c);
 static int	sort_type(const char c, va_list arg);
@@ -18,27 +24,30 @@ static int	sort_type(const char c, va_list arg);
 int	ft_printf(const char *format, ...)
 {
 	int		i;
-	int		test;
+	int		ret;
+	int		count;
 	va_list	arg;
 
 	if (!format)
 		return (-1);
+	ret = 0;
 	i = 0;
 	va_start(arg, format);
 	while (format[i])
 	{
 		if (format[i] == '%' && is_format(format[i + 1]))
 		{
-			test = sort_type(format[i + 1], arg);
+			count = sort_type(format[i + 1], arg);
 			i = i + 2;
 		}
 		else
-			test = write(1, &format[i++], 1);
-		if (!test)
+			count = write(1, &format[i++], 1);
+		if (count == -1)
 			return (-1);
+		ret += count;
 	}
 	va_end(arg);
-	return (0);
+	return (ret);
 }
 
 static int	is_format(char c)
@@ -52,33 +61,32 @@ static int	is_format(char c)
 
 static int	sort_type(const char c, va_list arg)
 {
-	int	test;
+	int	count;
 
-	test = 1;
+	count = 0;
 	if (c == 'c')
-		test = ft_putchar(va_arg(arg, int));
+		count = ft_putchar(va_arg(arg, int));
 	else if (c == 's')
-		test = ft_putstr(va_arg(arg, char *));
+		count = ft_putstr(va_arg(arg, char *));
 	else if (c == 'p')
-		test = ft_putvoid(va_arg(arg, void *));
+		count = ft_putvoid((unsigned long long int)va_arg(arg, void *));
 	else if (c == 'd' || c == 'i')
-		test = ft_putnbr(va_arg(arg, int));
+		count = ft_putnbr(va_arg(arg, int));
 	else if (c == 'u')
-		test = ft_putunbr(va_arg(arg, unsigned int));
+		count = ft_putunbr(va_arg(arg, unsigned int));
 	else if (c == 'x' || c == 'X')
-		test = ft_puthex(c, va_arg(arg, unsigned int));
+		count = ft_puthex(c, va_arg(arg, unsigned int));
 	else if (c == '%')
-		test = ft_putchar(c);
-	if (test == -1)
-		return (0);
-	return (1);
+		count = ft_putchar(c);
+	if (count == -1)
+		return (-1);
+	return (count);
 }
 /*
 #include <stdio.h>
 
 int	main(void)
 {
-	
 	int				test;
 	char			test2;
 	char			*test3;
@@ -97,8 +105,17 @@ int	main(void)
 	ft_printf("hello this is a %u\n", test4);
 	ft_printf("hello this is a %x\n", test5);
 	ft_printf("hello this is a %X\n", test5);
-	
-	ft_printf(" %c ", '0');
-	printf(" %c ", '0');
 }
 */
+
+#include <stdio.h>
+#include <limits.h>
+int	main()
+{
+	
+	int i = printf("expected :  %x ", -1);
+	printf("\n");
+	int j = ft_printf("actual   :  %x ", -1);
+	printf("\n");
+	printf("%d, %d", i, j);
+}

@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 15:48:40 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 13:35:13 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/20 13:13:10 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_putnbr(int n)
 		if (test == -1)
 			return (-1);
 	}
-	return (1);
+	return (ft_intlen(n));
 }
 /*
 #include "limits.h"

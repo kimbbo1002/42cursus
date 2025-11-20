@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 15:46:57 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 13:35:11 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/20 13:54:46 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 int	ft_putstr(char *str)
 {
 	int	i;
-	int	test;
+	int	count;
 
 	i = 0;
 	while (str[i])
 	{
-		test = ft_putchar(str[i]);
-		if (test == -1)
+		count = ft_putchar(str[i]);
+		if (count == -1)
 			return (-1);
 		i++;
 	}
-	return (1);
+	return (ft_strlen(str));
 }

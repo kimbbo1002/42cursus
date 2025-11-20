@@ -6,20 +6,25 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 22:34:23 by boyoung           #+#    #+#             */
-/*   Updated: 2025/11/18 13:34:56 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/20 13:47:15 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putvoid(void *s)
+int	ft_putvoid(unsigned long long int n)
 {
-	unsigned long int	ptr;
-	int					test;
+	int	tmp;
+	int	test;
+	int	count;
 
-	ptr = (unsigned long int)s;
-	test = ft_putunbr(ptr);
+	count = 0;
+	tmp = n % 10;
+	if (n > 9)
+		count = ft_putvoid(n / 10);
+	test = ft_puthex('x', tmp);
 	if (test == -1)
 		return (-1);
-	return (1);
+	count += test;
+	return (count);
 }

@@ -12,7 +12,27 @@
 
 #include "ft_printf.h"
 
-int	ft_puthex(char c, unsigned int i)
+int	ft_puthex(char c, int nb)
+{
+	int		test;
+	long	n;
+	int		tmp;
+
+	n = (long)nb;
+	if (nb < 0)
+	{
+		test = putbase(c, '-');
+		if (test == -1)
+			return (-1);
+		
+	}
+	test = ft_putchar(base[i % 16]);
+	if (test == -1)
+		return (-1);
+	return (2);
+}
+
+static int ft_putbase(char c, int n)
 {
 	char	*base;
 	int		test;
@@ -21,15 +41,10 @@ int	ft_puthex(char c, unsigned int i)
 		base = "0123456789abcdef";
 	else
 		base = "0123456789ABCDEF";
-	while (i / 256 != 0)
-		i = i / 256;
-	test = ft_putchar(base[i / 16]);
+	test = putchar(base[i / 16]);
 	if (test == -1)
 		return (-1);
-	test = ft_putchar(base[i % 16]);
-	if (test == -1)
-		return (-1);
-	return (1);
+	return (2);
 }
 /*
 #include <stdio.h>

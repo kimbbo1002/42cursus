@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/17 15:46:00 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/20 12:57:59 by bokim            ###   ########.fr       */
+/*   Created: 2025/11/20 12:47:31 by bokim             #+#    #+#             */
+/*   Updated: 2025/11/20 13:53:35 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(int c)
+size_t	ft_strlen(char *str)
 {
-	int				count;
-	unsigned char	ch;
+	size_t			i;
+	unsigned char	*s;
 
-	ch = (unsigned char)c;
-	count = write(1, &ch, 1);
-	if (count == -1)
-		return (-1);
-	return (1);
+	i = 0;
+	s = (unsigned char *)str;
+	while (s[i])
+		i++;
+	return (i);
 }

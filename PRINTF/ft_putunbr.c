@@ -6,13 +6,13 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 11:30:50 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/18 13:35:04 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/20 14:16:08 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putunbr(unsigned long int n)
+int	ft_putunbr(unsigned int n)
 {
 	int	tmp;
 	int	test;
@@ -23,7 +23,7 @@ int	ft_putunbr(unsigned long int n)
 	test = write(1, &tmp, 1);
 	if (test == -1)
 		return (-1);
-	return (0);
+	return (ft_uintlen(n));
 }
 /*
 #include <limits.h>

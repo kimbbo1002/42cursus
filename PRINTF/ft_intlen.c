@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/17 15:46:00 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/20 12:57:59 by bokim            ###   ########.fr       */
+/*   Created: 2025/11/20 13:04:14 by bokim             #+#    #+#             */
+/*   Updated: 2025/11/20 14:08:36 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 
-int	ft_putchar(int c)
+int	ft_intlen(int n)
 {
-	int				count;
-	unsigned char	ch;
+	int		count;
+	long	num;
 
-	ch = (unsigned char)c;
-	count = write(1, &ch, 1);
-	if (count == -1)
-		return (-1);
-	return (1);
+	count = 0;
+	num = n;
+	if (n < 0)
+	{
+		count++;
+		num = -num;
+	}
+	while (num / 10 != 0)
+	{
+		count++;
+		num = num / 10;
+	}
+	return (count + 1);
 }
