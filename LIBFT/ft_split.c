@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 11:01:46 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/20 10:19:11 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/20 11:15:54 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	res = malloc(sizeof(char *) * count_group(s, c));
-	if (!res)
+	if (!res || !s)
 		return (0);
 	while (s[i])
 	{
@@ -75,6 +75,8 @@ static int	count_group(char const *s, char c)
 	int	i;
 	int	count;
 
+	if (!s)
+		return (0);
 	i = 0;
 	count = 0;
 	while (s[i])

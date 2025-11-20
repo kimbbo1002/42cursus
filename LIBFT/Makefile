@@ -56,8 +56,9 @@ ${NAME}: ${OBJS}
 
 %.o: %.c
 	${CC} ${CFLAGS} -c $^ -o $@
-bonus: ${OBJS} ${BONUS_OBJS}
-	ar rcs ${NAME} $^
+
+bonus:
+	@make OBJS="$(OBJS) $(BONUS_OBJS)" --no-print-directory
 
 clean:
 	rm -f ${OBJS} ${BONUS_OBJS}
