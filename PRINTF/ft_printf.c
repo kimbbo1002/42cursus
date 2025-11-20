@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 14:23:28 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/20 14:19:17 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/20 23:49:19 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int	main(void)
 	ft_printf("hello this is a %X\n", test5);
 }
 */
-
+/*
 #include <stdio.h>
 #include <limits.h>
 int	main()
@@ -119,3 +119,4 @@ int	main()
 	printf("\n");
 	printf("%d, %d", i, j);
 }
+*/
