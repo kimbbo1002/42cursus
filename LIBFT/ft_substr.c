@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:41:25 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/19 12:34:23 by boyoung          ###   ########.fr       */
+/*   Updated: 2025/11/20 09:53:18 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	j = 0;
+	if (!s)
+		return (malloc(0));
 	res = malloc((ft_count_len(s, start, len) + 1) * sizeof(char));
 	if (!res)
 		return (0);

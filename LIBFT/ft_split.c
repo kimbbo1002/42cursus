@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 11:01:46 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/19 11:42:16 by boyoung          ###   ########.fr       */
+/*   Updated: 2025/11/20 10:19:11 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,10 @@ char	**ft_split(char const *s, char c)
 		if (s[i] != (unsigned char)c)
 		{
 			res[j] = assign_word((char *)&s[i], c);
-			if (!check_malloc(res[j], res))
+			if (!check_malloc(res[j++], res))
 				return (0);
 			while (s[i] && s[i] != (unsigned char)c)
 				i++;
-			j++;
 		}
 		else
 			i++;

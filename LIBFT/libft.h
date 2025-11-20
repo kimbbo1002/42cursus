@@ -17,6 +17,7 @@
 // standard headers
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdint.h>
 
 // libc functions
 int					ft_isalpha(int c);

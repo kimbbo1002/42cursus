@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:54:11 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/19 10:23:41 by boyoung          ###   ########.fr       */
+/*   Updated: 2025/11/20 09:26:48 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ return value :
 to free()
 */
 
-void	*ft_calloc(size_t n, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	unsigned char	*res;
 
-	if (size == 0 || n == 0 || size > (size_t) - 1 / n)
-		return (malloc(0));
-	res = malloc(size * n);
+	if (nmemb != 0 && size > SIZE_MAX / nmemb)
+		return (0);
+	res = malloc(size * nmemb);
 	if (!res)
 		return (0);
-	ft_memset(res, 0, size * n);
+	ft_memset(res, 0, size * nmemb);
 	return (res);
 }
 /*
