@@ -54,8 +54,8 @@ all: ${NAME}
 ${NAME}: ${OBJS}
 	ar rcs $@ $^
 
-%.o: %.c
-	${CC} ${CFLAGS} -c $^ -o $@
+%.o: %.c ${INCL}
+	${CC} ${CFLAGS} -c $< -o $@
 
 bonus:
 	@make OBJS="$(OBJS) $(BONUS_OBJS)" --no-print-directory
