@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 14:23:28 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/20 23:49:19 by boyoung          ###   ########.fr       */
+/*   Updated: 2025/11/21 11:43:21 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ return value :
 
 static int	is_format(char c);
 static int	sort_type(const char c, va_list arg);
+static int	do_void(void *arg);
 
 int	ft_printf(const char *format, ...)
 {
@@ -28,10 +29,10 @@ int	ft_printf(const char *format, ...)
 	int		count;
 	va_list	arg;
 
-	if (!format)
-		return (-1);
 	ret = 0;
 	i = 0;
+	if (!format)
+		return (-1);
 	va_start(arg, format);
 	while (format[i])
 	{
@@ -41,7 +42,7 @@ int	ft_printf(const char *format, ...)
 			i = i + 2;
 		}
 		else
-			count = write(1, &format[i++], 1);
+			count = ft_putchar(format[i++]);
 		if (count == -1)
 			return (-1);
 		ret += count;
@@ -69,7 +70,7 @@ static int	sort_type(const char c, va_list arg)
 	else if (c == 's')
 		count = ft_putstr(va_arg(arg, char *));
 	else if (c == 'p')
-		count = ft_putvoid((unsigned long long int)va_arg(arg, void *));
+		count = do_void(va_arg(arg, void *));
 	else if (c == 'd' || c == 'i')
 		count = ft_putnbr(va_arg(arg, int));
 	else if (c == 'u')
@@ -82,6 +83,25 @@ static int	sort_type(const char c, va_list arg)
 		return (-1);
 	return (count);
 }
+
+static int	do_void(void *arg)
+{
+	int	count;
+
+	if (arg == 0)
+	{
+		count = ft_putstr("(nil)");
+		if (count == -1)
+			return (-1);
+		return (count);
+	}
+	count = ft_putstr("0x");
+	if (count == -1)
+		return (-1);
+	count = ft_putvoid((unsigned long long int)arg) + 2;
+	return (count);
+}
+
 /*
 #include <stdio.h>
 
@@ -108,14 +128,17 @@ int	main(void)
 }
 */
 /*
-#include <stdio.h>
 #include <limits.h>
-int	main()
+#include <stdio.h>
+
+int	main(void)
 {
-	
-	int i = printf("expected :  %x ", -1);
+	int	i;
+	int	j;
+
+	i = printf(" %p %p", 0, 0);
 	printf("\n");
-	int j = ft_printf("actual   :  %x ", -1);
+	j = ft_printf(" %p %p", 0, 0);
 	printf("\n");
 	printf("%d, %d", i, j);
 }

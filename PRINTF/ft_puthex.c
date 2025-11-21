@@ -26,7 +26,7 @@ int	ft_puthex(char c, unsigned int n)
 	if (n >= 16)
 		count += ft_puthex(c, n / 16);
 	test = ft_putchar(base[n % 16]);
-	if(test == -1)
+	if (test == -1)
 		return (-1);
 	count += 1;
 	return (count);

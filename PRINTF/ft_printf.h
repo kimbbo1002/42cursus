@@ -24,7 +24,7 @@ int		ft_putchar(int c);
 int		ft_putstr(char *str);
 int		ft_putnbr(int n);
 int		ft_putunbr(unsigned int n);
-int	    ft_puthex(char c, unsigned int n);
+int		ft_puthex(char c, unsigned int n);
 int		ft_putvoid(unsigned long long int n);
 
 // function i need
