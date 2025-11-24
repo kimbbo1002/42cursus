@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 10:31:41 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/20 11:25:57 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/24 11:20:38 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 description :
-ct_Strnstr searches first n bytes of big for the first occurence of little
+ct_strnstr searches first n bytes of big for the first occurence of little
 
 return value :
 - pointer to first char of first occurence of little in big
