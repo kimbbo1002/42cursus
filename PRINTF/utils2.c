@@ -1,35 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr.c                                       :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/18 11:30:50 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/20 14:16:08 by bokim            ###   ########.fr       */
+/*   Created: 2025/11/17 15:48:40 by bokim             #+#    #+#             */
+/*   Updated: 2025/11/25 12:34:48 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+int	ft_putnbr(int n)
+{
+	int	tmp;
+
+	if (n < 0)
+	{
+		ft_putchar('-');
+		ft_putunbr(-n);
+	}
+	if (n >= 0)
+	{
+		tmp = n % 10 + '0';
+		if (n > 9)
+			ft_putnbr(n / 10);
+		ft_putchar(tmp);
+	}
+	return (ft_numlen(n));
+}
+
 int	ft_putunbr(unsigned int n)
 {
 	int	tmp;
-	int	test;
 
 	tmp = n % 10 + '0';
 	if (n > 9)
 		ft_putunbr(n / 10);
-	test = write(1, &tmp, 1);
-	if (test == -1)
-		return (-1);
-	return (ft_uintlen(n));
+	ft_putchar(tmp);
+	return (ft_numlen(n));
 }
-/*
-#include <limits.h>
 
-int	main(void)
+int	ft_numlen(long n)
 {
-	ft_putunbr(2147483648);
+	int	count;
+
+	count = 0;
+	if (n < 0)
+	{
+		count++;
+		n = -n;
+	}
+	while (n / 10 != 0)
+	{
+		count++;
+		n = n / 10;
+	}
+	return (count + 1);
 }
-	*/

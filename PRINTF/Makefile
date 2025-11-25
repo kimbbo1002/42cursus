@@ -3,15 +3,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 INCL = ft_printf.h
 SRCS = ft_printf.c \
-		ft_putchar.c \
-		ft_putstr.c \
-		ft_putnbr.c \
-		ft_putunbr.c \
-		ft_puthex.c \
-		ft_putvoid.c \
-		ft_strlen.c \
-		ft_intlen.c \
-		ft_uintlen.c
+		utils.c \
+		utils2.c
 OBJS = ${SRCS:.c=.o}
 
 all: ${NAME}

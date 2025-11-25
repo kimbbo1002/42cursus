@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 14:23:28 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/21 11:43:21 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/25 12:44:32 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@ static int	do_void(void *arg);
 int	ft_printf(const char *format, ...)
 {
 	int		i;
-	int		ret;
 	int		count;
 	va_list	arg;
 
-	ret = 0;
+	count = 0;
 	i = 0;
 	if (!format)
 		return (-1);
@@ -38,17 +37,14 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%' && is_format(format[i + 1]))
 		{
-			count = sort_type(format[i + 1], arg);
+			count += sort_type(format[i + 1], arg);
 			i = i + 2;
 		}
 		else
-			count = ft_putchar(format[i++]);
-		if (count == -1)
-			return (-1);
-		ret += count;
+			count += ft_putchar(format[i++]);
 	}
 	va_end(arg);
-	return (ret);
+	return (count);
 }
 
 static int	is_format(char c)
@@ -79,8 +75,6 @@ static int	sort_type(const char c, va_list arg)
 		count = ft_puthex(c, va_arg(arg, unsigned int));
 	else if (c == '%')
 		count = ft_putchar(c);
-	if (count == -1)
-		return (-1);
 	return (count);
 }
 
@@ -91,14 +85,10 @@ static int	do_void(void *arg)
 	if (arg == 0)
 	{
 		count = ft_putstr("(nil)");
-		if (count == -1)
-			return (-1);
 		return (count);
 	}
-	count = ft_putstr("0x");
-	if (count == -1)
-		return (-1);
-	count = ft_putvoid((unsigned long long int)arg) + 2;
+	ft_putstr("0x");
+	count = ft_putvoid((unsigned long)arg) + 2;
 	return (count);
 }
 
@@ -127,7 +117,7 @@ int	main(void)
 	ft_printf("hello this is a %X\n", test5);
 }
 */
-/*
+
 #include <limits.h>
 #include <stdio.h>
 
@@ -136,10 +126,9 @@ int	main(void)
 	int	i;
 	int	j;
 
-	i = printf(" %p %p", 0, 0);
+	i = printf(" %www");
 	printf("\n");
-	j = ft_printf(" %p %p", 0, 0);
+	j = ft_printf(" %www");
 	printf("\n");
 	printf("%d, %d", i, j);
 }
-*/
