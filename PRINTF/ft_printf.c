@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 14:23:28 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/25 12:44:32 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/25 12:46:27 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ int	main(void)
 	ft_printf("hello this is a %X\n", test5);
 }
 */
-
+/*
 #include <limits.h>
 #include <stdio.h>
 
@@ -132,3 +132,4 @@ int	main(void)
 	printf("\n");
 	printf("%d, %d", i, j);
 }
+*/
