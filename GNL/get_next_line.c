@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 14:26:57 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/26 10:39:01 by boyoung          ###   ########.fr       */
+/*   Updated: 2025/11/26 16:33:51 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ char	*get_next_line(int fd)
 	}
 	if (!buf)
 		return (0);
-	if (!left || !ft_strchr(left, '\n'))
-		line = fill_line(fd, left, buf);
-	else
-		line = left;
+	line = fill_line(fd, left, buf);
 	free(buf);
 	buf = 0;
 	if (!line)
+	{
+		left = 0;
 		return (0);
+	}
 	left = trim_line(line);
 	return (line);
 }
@@ -78,15 +78,15 @@ char	*trim_line(char *line)
 	i = 0;
 	while (line[i] != '\n' && line[i])
 		i++;
-	if (!line[i] || (line[i] == '\n' && !line[i + 1]))
+	if (!line[i] || (line[1]))
 		return (0);
-	left = ft_substr(line, i + 1, ft_strlen(line) - (i + 1));
-	if (!(*left))
+	left = ft_substr(line, i + 1, ft_strlen(line) - i);
+	line[i + 1] = '\0';
+	if (!left || !(*left))
 	{
 		free(left);
 		left = 0;
 	}
-	line[i + 1] = '\0';
 	return (left);
 }
 
