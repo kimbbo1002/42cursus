@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 14:26:57 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/24 14:58:54 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/26 10:39:01 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 char	*get_next_line(int fd)
 {
 	static char	*left;
-	static char	*buf;
-	static char	*line;
+	char		*buf;
+	char		*line;
 
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0 || !buf)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
 		free(left);
 		free(buf);
@@ -27,7 +27,12 @@ char	*get_next_line(int fd)
 		buf = 0;
 		return (0);
 	}
-	line = fill_line(fd, left, buf);
+	if (!buf)
+		return (0);
+	if (!left || !ft_strchr(left, '\n'))
+		line = fill_line(fd, left, buf);
+	else
+		line = left;
 	free(buf);
 	buf = 0;
 	if (!line)
@@ -50,7 +55,7 @@ char	*fill_line(int fd, char *left, char *buf)
 			free(left);
 			return (0);
 		}
-		if (n == 0)
+		else if (n == 0)
 			break ;
 		buf[n] = '\0';
 		if (!left)
@@ -73,14 +78,13 @@ char	*trim_line(char *line)
 	i = 0;
 	while (line[i] != '\n' && line[i])
 		i++;
-	if (!line[i] || !line[1])
+	if (!line[i] || (line[i] == '\n' && !line[i + 1]))
 		return (0);
 	left = ft_substr(line, i + 1, ft_strlen(line) - (i + 1));
-	if (!left)
+	if (!(*left))
 	{
 		free(left);
 		left = 0;
-		return (0);
 	}
 	line[i + 1] = '\0';
 	return (left);

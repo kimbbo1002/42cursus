@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 14:27:06 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/24 14:15:29 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/26 10:26:28 by boyoung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ char	*ft_strchr(const char *str, int c)
 	size_t	len;
 	char	*res;
 
+	if (!str)
+		return (0);
 	res = (char *)str;
 	i = 0;
 	len = ft_strlen(str);
