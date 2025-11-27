@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boyoung <boyoung@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 14:27:06 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/26 10:26:28 by boyoung          ###   ########.fr       */
+/*   Updated: 2025/11/27 19:05:04 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
 /*
 description :
 ft_strchr finds the first occurence of c in str
@@ -20,7 +21,7 @@ return value :
 - NULL if c is not found
 */
 
-char	*ft_strchr(const char *str, int c)
+int	ft_strchr(const char *str, int c)
 {
 	size_t	i;
 	size_t	len;
@@ -34,7 +35,7 @@ char	*ft_strchr(const char *str, int c)
 	while (i <= len)
 	{
 		if (res[i] == (unsigned char)c)
-			return (&res[i]);
+			return (1);
 		i++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 14:26:57 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/26 16:33:51 by bokim            ###   ########.fr       */
+/*   Updated: 2025/11/27 19:03:20 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,20 @@ char	*get_next_line(int fd)
 	char		*buf;
 	char		*line;
 
-	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+		return (0);
+	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buf)
 	{
 		free(left);
-		free(buf);
 		left = 0;
-		buf = 0;
 		return (0);
 	}
-	if (!buf)
-		return (0);
 	line = fill_line(fd, left, buf);
 	free(buf);
 	buf = 0;
 	if (!line)
-	{
-		left = 0;
 		return (0);
-	}
 	left = trim_line(line);
 	return (line);
 }
@@ -78,15 +73,15 @@ char	*trim_line(char *line)
 	i = 0;
 	while (line[i] != '\n' && line[i])
 		i++;
-	if (!line[i] || (line[1]))
+	if (!line[i] || !line[1])
 		return (0);
 	left = ft_substr(line, i + 1, ft_strlen(line) - i);
-	line[i + 1] = '\0';
 	if (!left || !(*left))
 	{
 		free(left);
 		left = 0;
 	}
+	line[i + 1] = '\0';
 	return (left);
 }
 
