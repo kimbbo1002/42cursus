@@ -31,5 +31,8 @@ int main(int argc, char **argv)
         printf("LINE: %s", line);
         free(line);
     }
+	line = get_next_line(fd);
+	printf("LINE: %s", line);
+    free(line);
     return (0);
 }
