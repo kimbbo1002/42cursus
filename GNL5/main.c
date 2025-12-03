@@ -36,9 +36,6 @@ int main(int argc, char **argv)
 	
 	printf("\n========== END OF FILE (Total lines: %d) ==========\n\n", line_count - 1);
 
-	// Close the file
-	close(fd);
-
 	// Test reading again after EOF
 	printf("Testing second read (should return NULL):\n");
 	line = get_next_line(fd);
@@ -49,6 +46,7 @@ int main(int argc, char **argv)
 		printf("✗ ERROR: Returned non-NULL after EOF: [%s]\n\n", line);
 		free(line);
 	}
+	close(fd);
 
 	return (0);
 }

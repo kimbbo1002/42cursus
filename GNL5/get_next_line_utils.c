@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 13:34:01 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/28 13:36:10 by bokim            ###   ########.fr       */
+/*   Updated: 2025/12/02 13:02:18 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	j = 0;
 	if (!s)
-		return (malloc(0));
+		return (0);
 	res = malloc((ft_count_len(s, start, len) + 1) * sizeof(char));
 	if (!res)
 		return (0);

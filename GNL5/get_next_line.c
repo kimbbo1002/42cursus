@@ -6,39 +6,50 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 13:33:17 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/28 17:23:32 by bokim            ###   ########.fr       */
+/*   Updated: 2025/12/02 13:02:08 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+
 char	*get_next_line(int fd)
 {
-	static char	*left;
+	static char	*left = 0;
 	char		*buf;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= 1024)
 		return (0);
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 	{
 		free(left);
+		left = 0;
 		return (0);
 	}
-	line = fill_line(fd, left, buf);
+	line = fill_line(fd, &left, buf);
 	free(buf);
 	buf = 0;
 	if (!line)
 	{
 		free(left);
+		left = 0;
 		return (0);
 	}
 	left = trim_line(line);
-	return (line);
+	char *s = ft_strdup(line);
+	free(line);
+	line = 0;
+	if (!s)
+	{
+		free(left);
+		left = 0;
+	}
+	return (s);
 }
 
-char	*fill_line(int fd, char *left, char *buf)
+char	*fill_line(int fd, char **left, char *buf)
 {
 	char	*tmp;
 	ssize_t	n;
@@ -48,23 +59,22 @@ char	*fill_line(int fd, char *left, char *buf)
 	{
 		n = read(fd, buf, BUFFER_SIZE);
 		if (n == -1)
-		{
-			free(left);
 			return (0);
-		}
 		else if (n == 0)
 			break ;
 		buf[n] = '\0';
-		if (!left)
-			left = ft_strdup("");
-		tmp = left;
-		left = ft_strjoin(tmp, buf);
+		if (!*left)
+			*left = ft_strdup("");
+		if (!*left)
+			return (0);
+		tmp = *left;
+		*left = ft_strjoin(tmp, buf);
 		free(tmp);
 		tmp = 0;
 		if (ft_strchr(buf, '\n'))
 			break ;
 	}
-	return (left);
+	return (*left);
 }
 
 char	*trim_line(char *line)
@@ -78,11 +88,6 @@ char	*trim_line(char *line)
 	if (!line[i] || (line[i] == '\n' && !line[i + 1]))
 		return (0);
 	left = ft_substr(line, i + 1, ft_strlen(line) - (i + 1));
-	if (!(*left))
-	{
-		free(left);
-		left = 0;
-	}
 	line[i + 1] = '\0';
 	return (left);
 }

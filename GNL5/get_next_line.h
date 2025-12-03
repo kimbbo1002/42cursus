@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 12:45:03 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/28 13:36:00 by bokim            ###   ########.fr       */
+/*   Updated: 2025/12/02 13:02:26 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 // get_next_line.c
 char	*get_next_line(int fd);
-char	*fill_line(int fd, char *left, char *buf);
+char	*fill_line(int fd, char **left, char *buf);
 char	*trim_line(char *line);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
