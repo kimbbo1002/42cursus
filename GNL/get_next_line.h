@@ -5,38 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/21 12:45:03 by bokim             #+#    #+#             */
-/*   Updated: 2025/11/27 18:59:43 by bokim            ###   ########.fr       */
+/*   Created: 2025/12/04 01:18:11 by bokim             #+#    #+#             */
+/*   Updated: 2025/12/04 13:35:53 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-// BUFFER_SIZE
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100
+#  define BUFFER_SIZE 10
 # endif
 
 # define MAX_FD 1024
 
-// standard header files
+// standar headers
 # include <stdlib.h>
 # include <unistd.h>
-#include <stdio.h>
 
 // get_next_line.c
 char	*get_next_line(int fd);
-char	*fill_line(int fd, char *left, char *buf);
-char	*trim_line(char *line);
-size_t	ft_strlen(const char *str);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char	*ft_make_line(char *rest, int *nl);
+char	*ft_get_line(char *line, char *rest, int *nl, int fd);
+size_t	ft_find_nl(char *line);
 
 // get_next_line_utils.c
-int 	ft_strchr(const char *str, int c);
-char	*ft_strdup(const char *s1);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-int		ft_count_len(char const *s, unsigned int start, size_t len);
+size_t	ft_strlen(char *s);
+void	ft_bzero(void *s, size_t n);
+void	*ft_memcpy(void *dst, void *src, size_t n);
+char	*ft_strjoin(char *s1, char *s2, int *nl);
+void	ft_strlcpy(char *dst, char *src, size_t dstsize);
 
 #endif
